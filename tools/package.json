@@ -1,0 +1,12 @@
+{
+  "name": "fachism-tools",
+  "private": true,
+  "type": "module",
+  "description": "Genererar docs/share.png. Ingår inte i den publicerade sidan.",
+  "scripts": {
+    "share": "node render-share.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

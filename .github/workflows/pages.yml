@@ -1,0 +1,55 @@
+name: Deploy till GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checka ut repot
+        uses: actions/checkout@v7
+
+      - name: Kontrollera att inga absoluta sökvägar finns i docs/
+        run: |
+          if grep -rnE '(src|href)="/[^/]' docs/; then
+            echo "Absolut sökväg hittad i docs/, bryter mot GitHub Pages-sökvägsregeln"
+            exit 1
+          fi
+
+      - name: Kontrollera att inga platshållare finns kvar
+        run: |
+          if grep -nE '<user>|<repo>' docs/index.html; then
+            echo "Platshållare <user> eller <repo> finns kvar i docs/index.html"
+            exit 1
+          fi
+
+      - name: Konfigurera Pages
+        uses: actions/configure-pages@v6
+
+      - name: Ladda upp docs/ som artefakt
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicera till GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

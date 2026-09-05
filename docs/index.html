@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Korporatismen och fascismfrågan</title>
+
+<meta name="description" content="Den svenska korporatismens avveckling 1987–1992 och de svenska riksdagspartiernas positioner i Chapel Hill Expert Survey 2019 och 2024.">
+<link rel="canonical" href="https://oluies.github.io/fachism/">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="Korporatism och partipositioner">
+<meta property="og:title" content="Korporatismen och fascismfrågan">
+<meta property="og:description" content="Sidan visar korporatismens avveckling i Sverige 1938–1992 och de åtta riksdagspartiernas positioner i Chapel Hill Expert Survey 2019 och 2024.">
+<meta property="og:url" content="https://oluies.github.io/fachism/">
+<meta property="og:image" content="https://oluies.github.io/fachism/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rubriken Korporatismen och fascismfrågan i vit text mot svart bakgrund.">
+
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!--
+  Facebook och LinkedIn cachar OG-data. Byts share.png eller någon og-tagg ut
+  senare visas den gamla förhandsvisningen tills cachen rensas manuellt i
+  Facebook Sharing Debugger respektive LinkedIn Post Inspector.
+-->
+
+<style>
+:root{
+  color-scheme: dark;
+  --plane:#0d0d0d;
+  --surface:#1a1a19;
+  --ink:#ffffff;
+  --ink2:#c3c2b7;
+  --muted:#898781;
+  --rule:#2c2c2a;
+  --axis:#383835;
+  --mark:#6da7ec;
+  --dim:#5a5954;
+  --accent:#3987e5;
+  --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html{ -webkit-text-size-adjust:100% }
+body{
+  margin:0;
+  background:var(--plane);
+  color:var(--ink2);
+  font-family:var(--font);
+  font-size:17px;
+  line-height:1.62;
+}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px 96px}
+header.top{padding:72px 0 40px;border-bottom:1px solid var(--rule);margin-bottom:12px}
+h1{
+  color:var(--ink);
+  font-size:clamp(30px,6vw,46px);
+  line-height:1.12;
+  letter-spacing:-0.015em;
+  margin:0 0 16px;
+  font-weight:650;
+}
+.standfirst{color:var(--muted);font-size:clamp(16px,2.4vw,19px);margin:0;max-width:60ch}
+h2{
+  color:var(--ink);
+  font-size:clamp(21px,3.4vw,26px);
+  line-height:1.24;
+  letter-spacing:-0.01em;
+  margin:56px 0 14px;
+  font-weight:620;
+}
+h3{color:var(--ink);font-size:18px;margin:32px 0 8px;font-weight:600}
+p{margin:0 0 16px;max-width:68ch}
+a{color:var(--mark)}
+a:hover{color:var(--ink)}
+ul.plain{margin:0 0 16px;padding-left:20px;max-width:68ch}
+ul.plain li{margin-bottom:8px}
+.sectnum{
+  display:block;
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:6px;
+  font-weight:600;
+}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- tidslinje ---------- */
+.timeline{list-style:none;margin:24px 0 28px;padding:0;max-width:68ch}
+.timeline li{position:relative;padding:0 0 22px 30px;border-left:1px solid var(--rule)}
+.timeline li:last-child{border-left-color:transparent;padding-bottom:0}
+.timeline li::before{
+  content:"";position:absolute;left:-5px;top:9px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--accent);
+}
+.timeline .year{
+  display:block;color:var(--ink);font-weight:640;
+  font-variant-numeric:tabular-nums;margin-bottom:2px;
+}
+.timeline p{margin:0;max-width:none}
+
+/* ---------- diagram ---------- */
+figure{margin:26px 0 8px}
+.scroll{overflow-x:auto;overflow-y:hidden;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+.scroll svg{display:block;width:100%;height:auto}
+svg text{font-family:var(--font);font-variant-numeric:tabular-nums}
+.ax{fill:var(--muted);font-size:12px}
+.axend{fill:var(--muted);font-size:12px;letter-spacing:0.08em;text-transform:uppercase}
+.plab{fill:var(--ink);font-size:13px;font-weight:600}
+.pval{fill:var(--ink2);font-size:12px}
+.pdelta{fill:var(--muted);font-size:12px}
+figcaption{color:var(--muted);font-size:14px;line-height:1.5;margin-top:10px;max-width:68ch}
+
+.hit{fill:transparent;stroke:none;cursor:default;outline:none}
+.hit:focus-visible + .halo, .hit:hover + .halo{opacity:1}
+.halo{opacity:0;fill:none;stroke:var(--ink);stroke-width:1}
+
+#tip{
+  position:fixed;z-index:20;pointer-events:none;
+  background:#000;color:var(--ink);
+  border:1px solid var(--axis);border-radius:4px;
+  padding:6px 9px;font-size:13px;line-height:1.35;
+  font-variant-numeric:tabular-nums;
+  max-width:240px;
+  box-shadow:0 6px 20px rgba(0,0,0,.6);
+}
+.nojs{color:var(--muted);font-size:14px;padding:16px}
+
+/* ---------- details / tabeller ---------- */
+details{margin:6px 0 8px;border-top:1px solid var(--rule)}
+summary{
+  cursor:pointer;color:var(--ink2);font-size:14px;
+  padding:12px 0;list-style:none;
+}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+ ";color:var(--muted)}
+details[open] summary::before{content:"– "}
+summary:hover{color:var(--ink)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{
+  padding:7px 12px 7px 0;text-align:left;
+  border-bottom:1px solid var(--rule);vertical-align:top;
+}
+thead th{color:var(--muted);font-weight:600;font-size:13px;white-space:nowrap}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;padding-right:14px}
+tbody td{color:var(--ink2)}
+tbody th{color:var(--ink);font-weight:600;white-space:nowrap}
+
+/* ---------- eco-tabell, medvetet skild från mätdatan ---------- */
+.eco{border:1px dashed var(--axis);border-radius:6px;padding:0 16px;background:transparent}
+.eco summary{padding:14px 0}
+.caution{
+  border:1px solid var(--muted);
+  border-left:4px solid var(--muted);
+  border-radius:4px;
+  padding:12px 14px;
+  margin:4px 0 18px;
+  color:var(--ink2);
+  font-size:14px;
+  line-height:1.55;
+  max-width:68ch;
+}
+.eco table td, .eco table th{border-bottom:1px dotted var(--rule)}
+.eco table td.n{color:var(--muted)}
+.eco tbody tr:last-child th,
+.eco tbody tr:last-child td{
+  border-bottom:none;color:var(--ink);font-weight:650;
+  border-top:1px solid var(--axis);
+}
+.eco tbody tr:last-child td.n{color:var(--ink)}
+
+/* ---------- källor ---------- */
+ol.sources{padding-left:22px;max-width:74ch;font-size:15px}
+ol.sources li{margin-bottom:14px}
+ol.sources a{word-break:break-word}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Korporatismen och fascismfrågan</h1>
+  <p class="standfirst">Systemets arkitektur 1938 till 1992, och partiernas mätbara positioner 2019 till 2024.</p>
+</header>
+
+<section>
+  <h2><span class="sectnum">1</span>Två frågor i stället för en</h2>
+  <p>Frågan "är parti X fascistiskt?" är dåligt ställd. Den slår ihop en beskrivning av ett politiskt system med en beskrivning av ett parti, och svaret blir därför beroende av vilken av de två saker den som frågar hade i åtanke. Två frågor tar dess plats, och de går att besvara var för sig.</p>
+  <p>Den första är hur maktstrukturen har sett ut: på vilket sätt organiserade intressen har varit inlemmade i den svenska statens beslutsfattande, och vad som hände med den ordningen. Det är en egenskap hos systemet och den följs över tid.</p>
+  <p>Den andra är var partierna ligger idag. Det är mätbart per parti och redovisas här med publicerade expertdata från Chapel Hill Expert Survey 2019 och 2024.</p>
+  <p>Sidan rangordnar inte partier efter hur fascistiska de är. Det är den slutsats sidan avvisar.</p>
+</section>
+
+<section>
+  <h2><span class="sectnum">2</span>Ecos fjorton kriterier</h2>
+  <p>Umberto Eco publicerade essän "Ur-Fascism" i The New York Review of Books den 22 juni 1995. Där räknar han upp fjorton drag som han menar återkommer i fascistiska rörelser: traditionskult, förkastande av modernism, handling före intellekt, oenighet uppfattad som förräderi, rädsla för olikhet, appell till frustrerade grupper, konspirationsbesatthet, en fiende som samtidigt framställs som stark och svag, livet som ständig kamp, förakt för svaghet, hjältekult, machismo och vapenkult, selektiv populism i "det sanna folkets" namn, och ett förenklat språk som begränsar vad som går att uttrycka.</p>
+  <p>Eco skrev själv att egenskaperna inte utgör ett sammanhängande diagnostiskt system, att flera av dem motsäger varandra och att de förekommer i andra former av despotism och fanatism. Listan är alltså inte en checklista där ett tillräckligt högt utfall ger en klassificering. Den beskriver återkommande drag, inte ett gränsvärde.</p>
+  <p>Nedan finns en poängsättning av de fjorton punkterna. Den är inte hämtad ur någon studie och redovisas hopfälld av det skälet.</p>
+
+  <details class="eco">
+    <summary>Visa poängtabellen (egna bedömningar, inte mätdata)</summary>
+    <div class="caution">
+      Siffrorna i tabellen är subjektiva bedömningar gjorda för den här sidan. De kommer inte från någon publicerad studie, de är inte reproducerbara och de ska inte läsas som mätdata på samma sätt som CHES-värdena längre ned. Skalan går från 0, inget tydligt stöd, till 3, starkt eller centralt. Summan är ingen fascismgrad. Den visar hur många av Ecos drag som överlappar.
+    </div>
+    <div class="scroll" style="background:transparent;border:none">
+    <table>
+      <caption class="visually-hidden" style="display:none">Ecos fjorton kriterier, egna bedömningar</caption>
+      <thead>
+        <tr><th class="n">#</th><th>Kriterium</th><th class="n">Mussolini</th><th class="n">S 1932–76</th><th class="n">S idag</th><th class="n">SD idag</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="n">1</td><th>Traditionskult</th><td class="n">3</td><td class="n">1</td><td class="n">1</td><td class="n">3</td></tr>
+        <tr><td class="n">2</td><th>Förkastande av modernism</th><td class="n">3</td><td class="n">0</td><td class="n">0</td><td class="n">1</td></tr>
+        <tr><td class="n">3</td><th>Handling före intellekt</th><td class="n">3</td><td class="n">1</td><td class="n">0</td><td class="n">1</td></tr>
+        <tr><td class="n">4</td><th>Oenighet = förräderi</th><td class="n">3</td><td class="n">1–2</td><td class="n">0–1</td><td class="n">1–2</td></tr>
+        <tr><td class="n">5</td><th>Rädsla för olikhet</th><td class="n">3</td><td class="n">1</td><td class="n">1</td><td class="n">3</td></tr>
+        <tr><td class="n">6</td><th>Appell till frustrerade grupper</th><td class="n">3</td><td class="n">2</td><td class="n">1–2</td><td class="n">2–3</td></tr>
+        <tr><td class="n">7</td><th>Konspirationsbesatthet</th><td class="n">3</td><td class="n">1</td><td class="n">0–1</td><td class="n">1–2</td></tr>
+        <tr><td class="n">8</td><th>Fienden både stark och svag</th><td class="n">3</td><td class="n">1</td><td class="n">1</td><td class="n">2</td></tr>
+        <tr><td class="n">9</td><th>Livet som ständig kamp</th><td class="n">3</td><td class="n">1</td><td class="n">0–1</td><td class="n">2</td></tr>
+        <tr><td class="n">10</td><th>Förakt för svaghet</th><td class="n">3</td><td class="n">0–1</td><td class="n">0</td><td class="n">1</td></tr>
+        <tr><td class="n">11</td><th>Hjältekult</th><td class="n">3</td><td class="n">1</td><td class="n">0</td><td class="n">1</td></tr>
+        <tr><td class="n">12</td><th>Machismo, vapen, dödskult</th><td class="n">3</td><td class="n">1</td><td class="n">0–1</td><td class="n">1–2</td></tr>
+        <tr><td class="n">13</td><th>Selektiv populism, "det sanna folket"</th><td class="n">3</td><td class="n">2</td><td class="n">1</td><td class="n">3</td></tr>
+        <tr><td class="n">14</td><th>Newspeak, förenklat språk</th><td class="n">3</td><td class="n">1–2</td><td class="n">1</td><td class="n">2</td></tr>
+        <tr><td class="n"></td><th>Totalt</th><td class="n">42/42</td><td class="n">14–19</td><td class="n">6–10</td><td class="n">24–29</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2><span class="sectnum">3</span>Korporatismen som systemegenskap</h2>
+  <p>Korporatism betecknar en ordning där organiserade intressen är formellt inlemmade i statens beslutsfattande: genom platser i myndigheternas styrelser, genom ledamotskap i statliga utredningar och genom en reglerad roll i beredningen av lagstiftning. Den ordningen byggdes upp i Sverige under 1900-talet och avvecklades under en kort period i slutet av 1980-talet och början av 1990-talet. Avvecklingen drevs av parterna själva.</p>
+
+  <ol class="timeline">
+    <li>
+      <span class="year">1938</span>
+      <p>Saltsjöbadsavtalet mellan LO och SAF. Parterna gör upp om spelreglerna på arbetsmarknaden utan statlig inblandning.</p>
+    </li>
+    <li>
+      <span class="year">1987</span>
+      <p>Verksledningsbeslutet slår fast att myndighetsstyrelser ska tillsättas efter personlig lämplighet, inte grupprepresentation. Undantag behålls för arbetsmarknadsområdet. Samma år beslutar SAP på sin kongress att avskaffa kollektivanslutningen.</p>
+    </li>
+    <li>
+      <span class="year">1991</span>
+      <p>SAF begär i skrivelse den 14 februari att inte längre vara företrätt i statliga myndighetsstyrelser och slutar nominera ledamöter. Kollektivanslutningen upphör vid årsskiftet 1990/91.</p>
+    </li>
+    <li>
+      <span class="year">1992</span>
+      <p>Proposition 1991/92:123 tar bort de kvarvarande undantagen. Lagändringarna träder i kraft den 1 juli 1992.</p>
+    </li>
+  </ol>
+
+  <h3>Utredningsväsendet</h3>
+  <p>SOU 1999:121, Avkorporativisering och lobbyism, redovisar hur representationen förändrades:</p>
+  <ul class="plain">
+    <li>Intresseorganisationernas andel av ledamöterna i statliga kommittéer: ungefär en femtedel 1960, under tio procent 1990.</li>
+    <li>Andel utredningar som är enmansutredningar: ungefär en tredjedel 1960, två tredjedelar 1995.</li>
+    <li>Intresseorganisationernas andel av ledamöterna i myndighetsstyrelser: kring tjugo procent under hela perioden 1960 till 1997, med en nedgång på tre procentenheter efter 1992.</li>
+  </ul>
+  <p>Den sista siffran motsäger den enkla avvecklingsberättelsen och ska stå kvar. Representationen krympte i kommittéväsendet, men i myndighetsstyrelserna låg den kvar kring tjugo procent genom hela perioden. Utredningens slutsats är att korporatismen inte upphörde utan förflyttades, mot politisering och lobbyism.</p>
+</section>
+
+<section>
+  <h2><span class="sectnum">4</span>Partikartan</h2>
+  <p>Chapel Hill Expert Survey är en återkommande expertenkät där statsvetare placerar partier på ett antal politiska dimensioner. Diagrammet visar 2024 års värden för de åtta riksdagspartierna. Vågrätt ligger lrecon, den ekonomiska vänster–högerdimensionen, 0 vänster till 10 höger. Lodrätt ligger galtan, 0 frihetlig till 10 traditionell. Referenslinjerna markerar mittpunkten 5 på båda skalorna.</p>
+
+  <figure>
+    <div class="scroll"><div id="chart-scatter"><p class="nojs">Diagrammet kräver JavaScript. Tabellen nedan innehåller samma data.</p></div></div>
+    <figcaption>Alla markeringar har samma färg. Partifärger skulle inte bära någon information här: riksdagen har tre blå partier, och SD:s gult mot MP:s grönt hamnar på ΔE 2,7 vid protanopi. Partibeteckningen står därför utskriven vid varje markering.</figcaption>
+  </figure>
+
+  <details>
+    <summary>Visa data som tabell: lrecon och galtan, CHES 2024</summary>
+    <div class="scroll" style="background:transparent;border:none">
+    <table>
+      <thead><tr><th>Parti</th><th>Beteckning</th><th class="n">lrecon</th><th class="n">galtan</th></tr></thead>
+      <tbody>
+        <tr><th>Vänsterpartiet</th><td>V</td><td class="n">1,89</td><td class="n">2,42</td></tr>
+        <tr><th>Socialdemokraterna</th><td>S</td><td class="n">3,68</td><td class="n">4,74</td></tr>
+        <tr><th>Centerpartiet</th><td>C</td><td class="n">7,84</td><td class="n">2,95</td></tr>
+        <tr><th>Liberalerna</th><td>L</td><td class="n">7,32</td><td class="n">4,47</td></tr>
+        <tr><th>Moderaterna</th><td>M</td><td class="n">7,89</td><td class="n">6,47</td></tr>
+        <tr><th>Kristdemokraterna</th><td>KD</td><td class="n">7,26</td><td class="n">7,79</td></tr>
+        <tr><th>Miljöpartiet</th><td>MP</td><td class="n">3,16</td><td class="n">1,95</td></tr>
+        <tr><th>Sverigedemokraterna</th><td>SD</td><td class="n">6,32</td><td class="n">9,00</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2><span class="sectnum">5</span>Lag och ordning</h2>
+  <p>Variabeln civlib_laworder mäter avvägningen mellan medborgerliga fri- och rättigheter och en hård linje i lag och ordning. Värdet 0 betyder starkt stöd för medborgerliga fri- och rättigheter. Värdet 10 betyder en hård linje i lag och ordning. Staplarna visar 2024 års värden, sorterade stigande.</p>
+
+  <figure>
+    <div class="scroll"><div id="chart-bars"><p class="nojs">Diagrammet kräver JavaScript. Tabellen nedan innehåller samma data.</p></div></div>
+    <figcaption>Samma färg för samtliga staplar, av skälet i bildtexten ovan.</figcaption>
+  </figure>
+
+  <details>
+    <summary>Visa data som tabell: civlib_laworder, CHES 2024</summary>
+    <div class="scroll" style="background:transparent;border:none">
+    <table>
+      <thead><tr><th>Parti</th><th>Beteckning</th><th class="n">civlib_laworder 2024</th></tr></thead>
+      <tbody>
+        <tr><th>Miljöpartiet</th><td>MP</td><td class="n">1,60</td></tr>
+        <tr><th>Vänsterpartiet</th><td>V</td><td class="n">2,10</td></tr>
+        <tr><th>Centerpartiet</th><td>C</td><td class="n">3,10</td></tr>
+        <tr><th>Liberalerna</th><td>L</td><td class="n">5,70</td></tr>
+        <tr><th>Socialdemokraterna</th><td>S</td><td class="n">6,40</td></tr>
+        <tr><th>Kristdemokraterna</th><td>KD</td><td class="n">7,90</td></tr>
+        <tr><th>Moderaterna</th><td>M</td><td class="n">8,70</td></tr>
+        <tr><th>Sverigedemokraterna</th><td>SD</td><td class="n">9,30</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2><span class="sectnum">6</span>Förflyttning 2019 till 2024</h2>
+  <p>Variabeln immigrate_policy mäter partiernas hållning till invandringspolitiken, 0 helt emot en restriktiv politik till 10 helt för. Diagrammet visar 2019 års värde och 2024 års värde för varje parti, sorterat efter 2024-värdet. Den ljusare punkten är 2019, den blå är 2024.</p>
+  <p>Samtliga åtta partier rör sig åt samma håll. L rör sig mest, +2,29. SD rör sig minst, +0,19, men låg 2019 på 9,76 av 10 och har alltså minst kvar att röra sig på skalan. Den lilla siffran säger därför något annat än de andra små siffrorna i diagrammet.</p>
+
+  <figure>
+    <div class="scroll"><div id="chart-dumbbell"><p class="nojs">Diagrammet kräver JavaScript. Tabellen nedan innehåller samma data.</p></div></div>
+    <figcaption>Två steg av samma färg används här, det ljusare för 2019 och det blå för 2024. Det är diagrammets enda färgkodning och den betecknar år, inte parti.</figcaption>
+  </figure>
+
+  <details>
+    <summary>Visa data som tabell: immigrate_policy 2019 och 2024</summary>
+    <div class="scroll" style="background:transparent;border:none">
+    <table>
+      <thead><tr><th>Parti</th><th>Beteckning</th><th class="n">2019</th><th class="n">2024</th><th class="n">Differens</th></tr></thead>
+      <tbody>
+        <tr><th>Miljöpartiet</th><td>MP</td><td class="n">1,31</td><td class="n">2,16</td><td class="n">+0,85</td></tr>
+        <tr><th>Vänsterpartiet</th><td>V</td><td class="n">1,53</td><td class="n">3,05</td><td class="n">+1,52</td></tr>
+        <tr><th>Centerpartiet</th><td>C</td><td class="n">1,94</td><td class="n">3,42</td><td class="n">+1,48</td></tr>
+        <tr><th>Liberalerna</th><td>L</td><td class="n">4,50</td><td class="n">6,79</td><td class="n">+2,29</td></tr>
+        <tr><th>Socialdemokraterna</th><td>S</td><td class="n">6,29</td><td class="n">6,95</td><td class="n">+0,66</td></tr>
+        <tr><th>Kristdemokraterna</th><td>KD</td><td class="n">7,82</td><td class="n">8,26</td><td class="n">+0,44</td></tr>
+        <tr><th>Moderaterna</th><td>M</td><td class="n">8,00</td><td class="n">8,47</td><td class="n">+0,47</td></tr>
+        <tr><th>Sverigedemokraterna</th><td>SD</td><td class="n">9,76</td><td class="n">9,95</td><td class="n">+0,19</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2><span class="sectnum">7</span>Varför ingen korporatismpoäng per parti</h2>
+  <p>Korporatism beskriver arkitekturen mellan staten och de organiserade intressena: vilka organisationer som har formella platser i beslutsprocessen, i vilka organ och på vilka villkor. Ett parti kan vilja ha den arkitekturen eller vilja avveckla den, men bär den inte i sig. Att sätta en korporatismpoäng på ett enskilt parti är att mäta en systemegenskap på fel analysnivå, och det är också skälet till att ingen sådan siffra finns på den här sidan.</p>
+  <p>Här hör klassificeringsfrågan hemma. Den etablerade termen för Sverigedemokraterna i forskningen är populistiskt radikalhögerparti, efter Cas Muddes typologi. Jungar och Jupskås placerar partiet i den nordiska varianten av den partifamiljen. Fascism är inte den term litteraturen använder.</p>
+</section>
+
+<section>
+  <h2><span class="sectnum">8</span>Slutsats</h2>
+  <p>Den svenska modellens särdrag låg i systemet, inte i partiernas ideologi. Organiserade intressen hade formella platser i statens beslutsfattande, och det arrangemanget monterades ned mellan 1987 och 1992, med parterna själva som drivande.</p>
+  <p>Dagens partier skiljer sig framför allt på GAL–TAN och på synen på lag och ordning. De skiljer sig inte nämnvärt på hur nära staten de vill knyta organiserade intressen, och den dimension som en gång gjorde den svenska modellen särskild finns därför inte längre som skiljelinje mellan dem.</p>
+</section>
+
+<section>
+  <h2><span class="sectnum">9</span>Källor</h2>
+  <ol class="sources">
+    <li>Umberto Eco, "Ur-Fascism", The New York Review of Books, 22 juni 1995. <a href="https://www.nybooks.com/articles/1995/06/22/ur-fascism/">https://www.nybooks.com/articles/1995/06/22/ur-fascism/</a></li>
+    <li>Chapel Hill Expert Survey 2019 och 2024. <a href="https://www.chesdata.eu/">https://www.chesdata.eu/</a></li>
+    <li>Proposition 1991/92:123, Slopande av intresserepresentation i vissa myndighetsstyrelser. Riksdagen, i kraft 1 juli 1992. <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/om-slopande-av-intresserepresentation-i-vissa_gf03123/html/">https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/om-slopande-av-intresserepresentation-i-vissa_gf03123/html/</a></li>
+    <li>SOU 1999:121, Avkorporativisering och lobbyism. <a href="https://lagen.nu/sou/1999:121">https://lagen.nu/sou/1999:121</a></li>
+    <li>SOU 2000:20, Steriliseringsfrågan i Sverige 1935–1975. <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/statens-offentliga-utredningar/steriliseringsfragan-i-sverige-1935-1975_gob320/html/">https://www.riksdagen.se/sv/dokument-och-lagar/dokument/statens-offentliga-utredningar/steriliseringsfragan-i-sverige-1935-1975_gob320/html/</a></li>
+    <li>Ann-Cathrine Jungar och Anders Ravik Jupskås, "Populist Radical Right Parties in the Nordic Region: A New and Distinct Party Family?", Scandinavian Political Studies 37(3), 2014, s. 215–238.</li>
+    <li>PerOla Öberg m.fl., "Disrupted Exchange and Declining Corporatism: Government Authority and Interest Group Capability in Scandinavia", Government and Opposition 46(3), 2011, s. 365–391.</li>
+    <li>Johannes Lindvall och Joakim Sebring, "Policy Reform and the Decline of Corporatism in Sweden", West European Politics 28(5), 2005, s. 1057.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>CHES-värdena är expertmedelvärden för landskod 16, hämtade ur de publicerade CSV-filerna. Poängsättningen av Ecos kriterier är en egen bedömning och ingen mätdata.</p>
+</footer>
+
+</div>
+
+<script>
+"use strict";
+
+/* Data ordagrant ur Chapel Hill Expert Survey, landskod 16.
+   lrecon 0 vänster till 10 höger. galtan 0 frihetlig till 10 traditionell.
+   immigrate_policy 0 helt emot restriktiv politik till 10 helt för.
+   civlib_laworder 0 medborgerliga fri- och rättigheter till 10 lag och ordning. */
+const DATA = {
+  names: {
+    V: "Vänsterpartiet",
+    S: "Socialdemokraterna",
+    C: "Centerpartiet",
+    L: "Liberalerna",
+    M: "Moderaterna",
+    KD: "Kristdemokraterna",
+    MP: "Miljöpartiet",
+    SD: "Sverigedemokraterna"
+  },
+  ches2019: {
+    V:  { lrecon: 1.76, galtan: 1.94, eu_position: 3.18, immigrate_policy: 1.53, multiculturalism: 1.06, civlib_laworder: 1.94 },
+    S:  { lrecon: 4.12, galtan: 4.41, eu_position: 5.75, immigrate_policy: 6.29, multiculturalism: 5.06, civlib_laworder: 5.88 },
+    C:  { lrecon: 8.00, galtan: 2.24, eu_position: 6.06, immigrate_policy: 1.94, multiculturalism: 2.47, civlib_laworder: 4.65 },
+    L:  { lrecon: 7.12, galtan: 3.24, eu_position: 6.88, immigrate_policy: 4.50, multiculturalism: 4.47, civlib_laworder: 6.29 },
+    M:  { lrecon: 7.71, galtan: 5.94, eu_position: 6.06, immigrate_policy: 8.00, multiculturalism: 6.82, civlib_laworder: 8.65 },
+    KD: { lrecon: 7.24, galtan: 7.06, eu_position: 5.82, immigrate_policy: 7.82, multiculturalism: 7.18, civlib_laworder: 8.24 },
+    MP: { lrecon: 3.94, galtan: 1.59, eu_position: 5.12, immigrate_policy: 1.31, multiculturalism: 0.88, civlib_laworder: 1.71 },
+    SD: { lrecon: 5.59, galtan: 8.76, eu_position: 2.24, immigrate_policy: 9.76, multiculturalism: 9.76, civlib_laworder: 9.47 }
+  },
+  ches2024: {
+    V:  { lrecon: 1.89, galtan: 2.42, eu_position: 3.32, immigrate_policy: 3.05, multiculturalism: 2.16, civlib_laworder: 2.10 },
+    S:  { lrecon: 3.68, galtan: 4.74, eu_position: 5.74, immigrate_policy: 6.95, multiculturalism: 5.44, civlib_laworder: 6.40 },
+    C:  { lrecon: 7.84, galtan: 2.95, eu_position: 6.11, immigrate_policy: 3.42, multiculturalism: 3.32, civlib_laworder: 3.10 },
+    L:  { lrecon: 7.32, galtan: 4.47, eu_position: 6.84, immigrate_policy: 6.79, multiculturalism: 6.16, civlib_laworder: 5.70 },
+    M:  { lrecon: 7.89, galtan: 6.47, eu_position: 5.74, immigrate_policy: 8.47, multiculturalism: 8.05, civlib_laworder: 8.70 },
+    KD: { lrecon: 7.26, galtan: 7.79, eu_position: 5.35, immigrate_policy: 8.26, multiculturalism: 8.58, civlib_laworder: 7.90 },
+    MP: { lrecon: 3.16, galtan: 1.95, eu_position: 5.32, immigrate_policy: 2.16, multiculturalism: 1.47, civlib_laworder: 1.60 },
+    SD: { lrecon: 6.32, galtan: 9.00, eu_position: 2.68, immigrate_policy: 9.95, multiculturalism: 9.89, civlib_laworder: 9.30 }
+  },
+  /* Differens immigrate_policy 2019 till 2024, ordagrant ur källan. */
+  immigrateDelta: { MP: 0.85, V: 1.52, C: 1.48, L: 2.29, S: 0.66, KD: 0.44, M: 0.47, SD: 0.19 }
+};
+
+const NS = "http://www.w3.org/2000/svg";
+const CODES = ["V", "S", "C", "L", "M", "KD", "MP", "SD"];
+
+function n(tag, attrs) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  return e;
+}
+function text(x, y, s, cls, anchor) {
+  const t = n("text", { x: x, y: y, class: cls || "ax" });
+  if (anchor) t.setAttribute("text-anchor", anchor);
+  t.textContent = s;
+  return t;
+}
+function fmt(v) { return v.toFixed(2).replace(".", ","); }
+function sfmt(v) { return "+" + fmt(v); }
+
+/* ---------- tooltip ---------- */
+const tip = document.createElement("div");
+tip.id = "tip";
+tip.hidden = true;
+tip.setAttribute("role", "status");
+document.body.appendChild(tip);
+
+function place(label, x, y) {
+  tip.textContent = label;
+  tip.hidden = false;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let left = x + 14, top = y - h - 12;
+  if (left + w > window.innerWidth - 8) left = window.innerWidth - w - 8;
+  if (left < 8) left = 8;
+  if (top < 8) top = y + 20;
+  tip.style.left = left + "px";
+  tip.style.top = top + "px";
+}
+function hide() { tip.hidden = true; }
+
+function bind(node, label) {
+  node.setAttribute("tabindex", "0");
+  node.setAttribute("role", "img");
+  node.setAttribute("aria-label", label);
+  node.addEventListener("pointerenter", function (e) { place(label, e.clientX, e.clientY); });
+  node.addEventListener("pointermove", function (e) { place(label, e.clientX, e.clientY); });
+  node.addEventListener("pointerleave", hide);
+  node.addEventListener("focus", function () {
+    const r = node.getBoundingClientRect();
+    place(label, r.left + r.width / 2, r.top);
+  });
+  node.addEventListener("blur", hide);
+}
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") hide(); });
+window.addEventListener("scroll", hide, { passive: true });
+
+function frame(host, w, h, minw, label) {
+  const svg = n("svg", {
+    viewBox: "0 0 " + w + " " + h,
+    width: w, height: h,
+    role: "group",
+    "aria-label": label
+  });
+  svg.style.minWidth = minw + "px";
+  host.textContent = "";
+  host.appendChild(svg);
+  return svg;
+}
+
+/* ---------- 1. scatter: lrecon mot galtan, 2024 ---------- */
+(function scatter() {
+  const host = document.getElementById("chart-scatter");
+  const W = 720, H = 580, ML = 62, MR = 34, MT = 34, MB = 66;
+  const pw = W - ML - MR, ph = H - MT - MB;
+  const svg = frame(host, W, H, 580, "Spridningsdiagram över lrecon och galtan för åtta partier, CHES 2024");
+  const x = v => ML + (v / 10) * pw;
+  const y = v => MT + ph - (v / 10) * ph;
+
+  const g = n("g", {});
+  svg.appendChild(g);
+
+  for (let t = 0; t <= 10; t += 2) {
+    g.appendChild(n("line", { x1: x(t), y1: MT, x2: x(t), y2: MT + ph, stroke: "var(--rule)", "stroke-width": 1 }));
+    g.appendChild(n("line", { x1: ML, y1: y(t), x2: ML + pw, y2: y(t), stroke: "var(--rule)", "stroke-width": 1 }));
+    g.appendChild(text(x(t), MT + ph + 20, String(t), "ax", "middle"));
+    g.appendChild(text(ML - 12, y(t) + 4, String(t), "ax", "end"));
+  }
+
+  /* referenslinjer vid 5 */
+  g.appendChild(n("line", { x1: x(5), y1: MT, x2: x(5), y2: MT + ph, stroke: "var(--axis)", "stroke-width": 1, "stroke-dasharray": "4 4" }));
+  g.appendChild(n("line", { x1: ML, y1: y(5), x2: ML + pw, y2: y(5), stroke: "var(--axis)", "stroke-width": 1, "stroke-dasharray": "4 4" }));
+
+  g.appendChild(n("line", { x1: ML, y1: MT + ph, x2: ML + pw, y2: MT + ph, stroke: "var(--axis)", "stroke-width": 1 }));
+  g.appendChild(n("line", { x1: ML, y1: MT, x2: ML, y2: MT + ph, stroke: "var(--axis)", "stroke-width": 1 }));
+
+  /* axeländar */
+  g.appendChild(text(ML, MT + ph + 46, "Vänster", "axend", "start"));
+  g.appendChild(text(ML + pw, MT + ph + 46, "Höger", "axend", "end"));
+  const tan = text(0, 0, "TAN", "axend", "middle");
+  tan.setAttribute("transform", "translate(" + (ML - 40) + "," + (MT + 22) + ") rotate(-90)");
+  g.appendChild(tan);
+  const gal = text(0, 0, "GAL", "axend", "middle");
+  gal.setAttribute("transform", "translate(" + (ML - 40) + "," + (MT + ph - 22) + ") rotate(-90)");
+  g.appendChild(gal);
+  g.appendChild(text(ML, MT - 14, "lrecon vågrätt, galtan lodrätt, CHES 2024", "ax", "start"));
+
+  /* etikettplacering, endast layout */
+  const off = { V: [11, 5], S: [11, 5], C: [11, 5], L: [-11, 5], M: [11, 5], KD: [-11, 5], MP: [11, 5], SD: [11, 5] };
+
+  CODES.forEach(function (code) {
+    const d = DATA.ches2024[code];
+    const px = x(d.lrecon), py = y(d.galtan);
+    g.appendChild(n("circle", { cx: px, cy: py, r: 4.5, fill: "var(--mark)" }));
+    const o = off[code];
+    g.appendChild(text(px + o[0], py + o[1], code, "plab", o[0] < 0 ? "end" : "start"));
+    const hit = n("circle", { cx: px, cy: py, r: 17, class: "hit" });
+    const halo = n("circle", { cx: px, cy: py, r: 9, class: "halo" });
+    g.appendChild(hit);
+    g.appendChild(halo);
+    bind(hit, DATA.names[code] + ": lrecon " + fmt(d.lrecon) + ", galtan " + fmt(d.galtan));
+  });
+})();
+
+/* ---------- 2. liggande staplar: civlib_laworder 2024 ---------- */
+(function bars() {
+  const host = document.getElementById("chart-bars");
+  const rows = CODES.slice().sort(function (a, b) {
+    return DATA.ches2024[a].civlib_laworder - DATA.ches2024[b].civlib_laworder;
+  });
+  const ML = 46, MR = 58, MT = 46, MB = 58, RH = 40, BH = 17;
+  const W = 720, H = MT + rows.length * RH + MB;
+  const pw = W - ML - MR;
+  const svg = frame(host, W, H, 520, "Liggande stapeldiagram över civlib_laworder för åtta partier, CHES 2024");
+  const x = v => ML + (v / 10) * pw;
+  const g = n("g", {});
+  svg.appendChild(g);
+
+  for (let t = 0; t <= 10; t += 2) {
+    g.appendChild(n("line", { x1: x(t), y1: MT - 10, x2: x(t), y2: MT + rows.length * RH, stroke: "var(--rule)", "stroke-width": 1 }));
+    g.appendChild(text(x(t), MT + rows.length * RH + 20, String(t), "ax", "middle"));
+  }
+  g.appendChild(n("line", { x1: ML, y1: MT + rows.length * RH, x2: ML + pw, y2: MT + rows.length * RH, stroke: "var(--axis)", "stroke-width": 1 }));
+  g.appendChild(text(ML, MT + rows.length * RH + 44, "0 medborgerliga fri- och rättigheter", "ax", "start"));
+  g.appendChild(text(ML + pw, MT + rows.length * RH + 44, "10 lag och ordning", "ax", "end"));
+  g.appendChild(text(ML, MT - 24, "civlib_laworder, CHES 2024, stigande", "ax", "start"));
+
+  rows.forEach(function (code, i) {
+    const v = DATA.ches2024[code].civlib_laworder;
+    const ty = MT + i * RH + RH / 2;
+    g.appendChild(text(ML - 10, ty + 5, code, "plab", "end"));
+    g.appendChild(n("rect", { x: ML, y: ty - BH / 2, width: Math.max(1, x(v) - ML), height: BH, fill: "var(--mark)" }));
+    g.appendChild(text(x(v) + 8, ty + 5, fmt(v), "pval", "start"));
+    const hit = n("rect", { x: ML - 40, y: ty - RH / 2, width: pw + 52, height: RH, class: "hit" });
+    const halo = n("rect", { x: ML, y: ty - BH / 2 - 3, width: Math.max(1, x(v) - ML), height: BH + 6, class: "halo" });
+    g.appendChild(hit);
+    g.appendChild(halo);
+    bind(hit, DATA.names[code] + ": civlib_laworder " + fmt(v));
+  });
+})();
+
+/* ---------- 3. dumbbell: immigrate_policy 2019 till 2024 ---------- */
+(function dumbbell() {
+  const host = document.getElementById("chart-dumbbell");
+  const rows = CODES.slice().sort(function (a, b) {
+    return DATA.ches2024[a].immigrate_policy - DATA.ches2024[b].immigrate_policy;
+  });
+  const ML = 46, MR = 86, MT = 66, MB = 58, RH = 40;
+  const W = 720, H = MT + rows.length * RH + MB;
+  const pw = W - ML - MR;
+  const svg = frame(host, W, H, 560, "Dumbbelldiagram över immigrate_policy 2019 och 2024 för åtta partier");
+  const x = v => ML + (v / 10) * pw;
+  const g = n("g", {});
+  svg.appendChild(g);
+
+  /* utskriven förklaring av de två stegen */
+  g.appendChild(n("circle", { cx: ML + 5, cy: MT - 40, r: 4.5, fill: "var(--dim)" }));
+  g.appendChild(text(ML + 16, MT - 36, "2019", "ax", "start"));
+  g.appendChild(n("circle", { cx: ML + 68, cy: MT - 40, r: 4.5, fill: "var(--mark)" }));
+  g.appendChild(text(ML + 79, MT - 36, "2024", "ax", "start"));
+  g.appendChild(text(ML + 130, MT - 36, "immigrate_policy, 0 helt emot restriktiv politik till 10 helt för", "ax", "start"));
+
+  for (let t = 0; t <= 10; t += 2) {
+    g.appendChild(n("line", { x1: x(t), y1: MT - 10, x2: x(t), y2: MT + rows.length * RH, stroke: "var(--rule)", "stroke-width": 1 }));
+    g.appendChild(text(x(t), MT + rows.length * RH + 20, String(t), "ax", "middle"));
+  }
+  g.appendChild(n("line", { x1: ML, y1: MT + rows.length * RH, x2: ML + pw, y2: MT + rows.length * RH, stroke: "var(--axis)", "stroke-width": 1 }));
+  g.appendChild(text(ML, MT + rows.length * RH + 44, "Differensen står till höger om varje par", "ax", "start"));
+
+  rows.forEach(function (code, i) {
+    const a = DATA.ches2019[code].immigrate_policy;
+    const b = DATA.ches2024[code].immigrate_policy;
+    const d = DATA.immigrateDelta[code];
+    const ty = MT + i * RH + RH / 2;
+    g.appendChild(text(ML - 10, ty + 5, code, "plab", "end"));
+    g.appendChild(n("line", { x1: x(a), y1: ty, x2: x(b), y2: ty, stroke: "var(--dim)", "stroke-width": 2 }));
+    g.appendChild(n("circle", { cx: x(a), cy: ty, r: 4.5, fill: "var(--dim)" }));
+    g.appendChild(n("circle", { cx: x(b), cy: ty, r: 5, fill: "var(--mark)" }));
+    g.appendChild(text(ML + pw + 18, ty + 5, sfmt(d), "pdelta", "start"));
+    const hit = n("rect", { x: ML - 40, y: ty - RH / 2, width: pw + 80, height: RH, class: "hit" });
+    const halo = n("rect", { x: Math.min(x(a), x(b)) - 9, y: ty - 11, width: Math.abs(x(b) - x(a)) + 18, height: 22, rx: 11, class: "halo" });
+    g.appendChild(hit);
+    g.appendChild(halo);
+    bind(hit, DATA.names[code] + ": 2019 " + fmt(a) + ", 2024 " + fmt(b) + ", differens " + sfmt(d));
+  });
+})();
+</script>
+</body>
+</html>
