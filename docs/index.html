@@ -114,6 +114,10 @@ svg text{font-family:var(--font);font-variant-numeric:tabular-nums}
 .plab{fill:var(--ink);font-size:13px;font-weight:600}
 .pval{fill:var(--ink2);font-size:12px}
 .pdelta{fill:var(--muted);font-size:12px}
+.ptitle{fill:var(--ink);font-size:14px;font-weight:640}
+.psub{fill:var(--muted);font-size:11.5px}
+.pcode{fill:var(--ink);font-size:12px;font-weight:600}
+.ptick{fill:var(--muted);font-size:11.5px}
 figcaption{color:var(--muted);font-size:14px;line-height:1.5;margin-top:10px;max-width:68ch}
 
 .hit{fill:transparent;stroke:none;cursor:default;outline:none}
@@ -173,6 +177,24 @@ tbody th{color:var(--ink);font-weight:600;white-space:nowrap}
   border-top:1px solid var(--axis);
 }
 .eco tbody tr:last-child td.n{color:var(--ink)}
+
+/* ---------- små multiplar ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:18px;align-items:center;color:var(--muted);font-size:14px;margin:0 0 12px}
+.key{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+.key-dim{background:var(--dim)}
+.key-mark{background:var(--mark)}
+.panels{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:4px;
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:10px;
+}
+.panels svg{display:block;width:100%;height:auto}
+.tlabel{color:var(--muted);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;margin:18px 0 6px;font-weight:600}
+.tlabel:first-child{margin-top:4px}
 
 /* ---------- källor ---------- */
 ol.sources{padding-left:22px;max-width:74ch;font-size:15px}
@@ -358,19 +380,84 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);color:v
 </section>
 
 <section>
-  <h2><span class="sectnum">7</span>Varför ingen korporatismpoäng per parti</h2>
+  <h2><span class="sectnum">7</span>Samtliga mätbara dimensioner</h2>
+  <p>Diagrammen ovan visar tre av de sex dimensioner som Chapel Hill Expert Survey mäter för svenska partier. Panelerna nedan visar alla sex, med 2019 års värde och 2024 års värde för varje parti. Skalorna är inte desamma: fem av dimensionerna går från 0 till 10, medan eu_position går från 1 till 7. Varje panel har därför en egen axel, och panelerna går inte att jämföra i sidled utan att skaltexten läses.</p>
+  <p>Partierna står i samma ordning i alla sex paneler, sorterade efter lrecon 2024, så att ett parti kan följas mellan panelerna. Differenser skrivs inte ut här. För immigrate_policy finns de publicerade och redovisas i avsnitt 6. För de övriga fem dimensionerna saknas motsvarande uppgift, och avståndet mellan punkterna får läsas av i diagrammet.</p>
+
+  <figure>
+    <p class="legend"><span><span class="key key-dim"></span>2019</span><span><span class="key key-mark"></span>2024</span></p>
+    <div class="panels" id="chart-panels"><p class="nojs">Panelerna kräver JavaScript. Tabellerna nedan innehåller samma data.</p></div>
+    <figcaption>Samma färgregel som i diagrammen ovan. Markeringarna bär ingen partiinformation, och de två stegen betecknar år, inte parti.</figcaption>
+  </figure>
+
+  <details>
+    <summary>Visa data som tabell: samtliga sex dimensioner, CHES 2019 och 2024</summary>
+
+    <p class="tlabel">CHES 2019</p>
+    <div class="scroll" style="background:transparent;border:none">
+    <table>
+      <thead><tr><th>Parti</th><th class="n">lrecon</th><th class="n">galtan</th><th class="n">eu_position</th><th class="n">immigrate_policy</th><th class="n">multiculturalism</th><th class="n">civlib_laworder</th></tr></thead>
+      <tbody>
+        <tr><th>V</th><td class="n">1,76</td><td class="n">1,94</td><td class="n">3,18</td><td class="n">1,53</td><td class="n">1,06</td><td class="n">1,94</td></tr>
+        <tr><th>S</th><td class="n">4,12</td><td class="n">4,41</td><td class="n">5,75</td><td class="n">6,29</td><td class="n">5,06</td><td class="n">5,88</td></tr>
+        <tr><th>C</th><td class="n">8,00</td><td class="n">2,24</td><td class="n">6,06</td><td class="n">1,94</td><td class="n">2,47</td><td class="n">4,65</td></tr>
+        <tr><th>L</th><td class="n">7,12</td><td class="n">3,24</td><td class="n">6,88</td><td class="n">4,50</td><td class="n">4,47</td><td class="n">6,29</td></tr>
+        <tr><th>M</th><td class="n">7,71</td><td class="n">5,94</td><td class="n">6,06</td><td class="n">8,00</td><td class="n">6,82</td><td class="n">8,65</td></tr>
+        <tr><th>KD</th><td class="n">7,24</td><td class="n">7,06</td><td class="n">5,82</td><td class="n">7,82</td><td class="n">7,18</td><td class="n">8,24</td></tr>
+        <tr><th>MP</th><td class="n">3,94</td><td class="n">1,59</td><td class="n">5,12</td><td class="n">1,31</td><td class="n">0,88</td><td class="n">1,71</td></tr>
+        <tr><th>SD</th><td class="n">5,59</td><td class="n">8,76</td><td class="n">2,24</td><td class="n">9,76</td><td class="n">9,76</td><td class="n">9,47</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p class="tlabel">CHES 2024</p>
+    <div class="scroll" style="background:transparent;border:none">
+    <table>
+      <thead><tr><th>Parti</th><th class="n">lrecon</th><th class="n">galtan</th><th class="n">eu_position</th><th class="n">immigrate_policy</th><th class="n">multiculturalism</th><th class="n">civlib_laworder</th></tr></thead>
+      <tbody>
+        <tr><th>V</th><td class="n">1,89</td><td class="n">2,42</td><td class="n">3,32</td><td class="n">3,05</td><td class="n">2,16</td><td class="n">2,10</td></tr>
+        <tr><th>S</th><td class="n">3,68</td><td class="n">4,74</td><td class="n">5,74</td><td class="n">6,95</td><td class="n">5,44</td><td class="n">6,40</td></tr>
+        <tr><th>C</th><td class="n">7,84</td><td class="n">2,95</td><td class="n">6,11</td><td class="n">3,42</td><td class="n">3,32</td><td class="n">3,10</td></tr>
+        <tr><th>L</th><td class="n">7,32</td><td class="n">4,47</td><td class="n">6,84</td><td class="n">6,79</td><td class="n">6,16</td><td class="n">5,70</td></tr>
+        <tr><th>M</th><td class="n">7,89</td><td class="n">6,47</td><td class="n">5,74</td><td class="n">8,47</td><td class="n">8,05</td><td class="n">8,70</td></tr>
+        <tr><th>KD</th><td class="n">7,26</td><td class="n">7,79</td><td class="n">5,35</td><td class="n">8,26</td><td class="n">8,58</td><td class="n">7,90</td></tr>
+        <tr><th>MP</th><td class="n">3,16</td><td class="n">1,95</td><td class="n">5,32</td><td class="n">2,16</td><td class="n">1,47</td><td class="n">1,60</td></tr>
+        <tr><th>SD</th><td class="n">6,32</td><td class="n">9,00</td><td class="n">2,68</td><td class="n">9,95</td><td class="n">9,89</td><td class="n">9,30</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p class="tlabel">Skalornas riktning</p>
+    <div class="scroll" style="background:transparent;border:none">
+    <table>
+      <thead><tr><th>Variabel</th><th>Låg ände</th><th>Hög ände</th></tr></thead>
+      <tbody>
+        <tr><th>lrecon</th><td>0 vänster</td><td>10 höger</td></tr>
+        <tr><th>galtan</th><td>0 frihetlig</td><td>10 traditionell</td></tr>
+        <tr><th>eu_position</th><td>1 starkt emot</td><td>7 starkt för</td></tr>
+        <tr><th>immigrate_policy</th><td>0 helt emot restriktiv politik</td><td>10 helt för</td></tr>
+        <tr><th>multiculturalism</th><td>0 främja mångkultur</td><td>10 främja assimilering</td></tr>
+        <tr><th>civlib_laworder</th><td>0 medborgerliga fri- och rättigheter</td><td>10 lag och ordning</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2><span class="sectnum">8</span>Varför ingen korporatismpoäng per parti</h2>
   <p>Korporatism beskriver arkitekturen mellan staten och de organiserade intressena: vilka organisationer som har formella platser i beslutsprocessen, i vilka organ och på vilka villkor. Ett parti kan vilja ha den arkitekturen eller vilja avveckla den, men bär den inte i sig. Att sätta en korporatismpoäng på ett enskilt parti är att mäta en systemegenskap på fel analysnivå, och det är också skälet till att ingen sådan siffra finns på den här sidan.</p>
   <p>Här hör klassificeringsfrågan hemma. Den etablerade termen för Sverigedemokraterna i forskningen är populistiskt radikalhögerparti, efter Cas Muddes typologi. Jungar och Jupskås placerar partiet i den nordiska varianten av den partifamiljen. Fascism är inte den term litteraturen använder.</p>
 </section>
 
 <section>
-  <h2><span class="sectnum">8</span>Slutsats</h2>
+  <h2><span class="sectnum">9</span>Slutsats</h2>
   <p>Den svenska modellens särdrag låg i systemet, inte i partiernas ideologi. Organiserade intressen hade formella platser i statens beslutsfattande, och det arrangemanget monterades ned mellan 1987 och 1992, med parterna själva som drivande.</p>
   <p>Dagens partier skiljer sig framför allt på GAL–TAN och på synen på lag och ordning. De skiljer sig inte nämnvärt på hur nära staten de vill knyta organiserade intressen, och den dimension som en gång gjorde den svenska modellen särskild finns därför inte längre som skiljelinje mellan dem.</p>
 </section>
 
 <section>
-  <h2><span class="sectnum">9</span>Källor</h2>
+  <h2><span class="sectnum">10</span>Källor</h2>
   <ol class="sources">
     <li>Umberto Eco, "Ur-Fascism", The New York Review of Books, 22 juni 1995. <a href="https://www.nybooks.com/articles/1995/06/22/ur-fascism/">https://www.nybooks.com/articles/1995/06/22/ur-fascism/</a></li>
     <li>Chapel Hill Expert Survey 2019 och 2024. <a href="https://www.chesdata.eu/">https://www.chesdata.eu/</a></li>
@@ -446,6 +533,23 @@ function text(x, y, s, cls, anchor) {
   return t;
 }
 function fmt(v) { return v.toFixed(2).replace(".", ","); }
+/* Bryter en etikett på ordgräns så att den ryms inom maxw. */
+function wrap(g, str, x, y, cls, maxw, lineH) {
+  const probe = text(x, y, "", cls, "start");
+  g.appendChild(probe);
+  const lines = [];
+  let cur = "";
+  str.split(" ").forEach(function (w) {
+    const trial = cur ? cur + " " + w : w;
+    probe.textContent = trial;
+    if (cur && probe.getComputedTextLength() > maxw) { lines.push(cur); cur = w; }
+    else { cur = trial; }
+  });
+  if (cur) lines.push(cur);
+  g.removeChild(probe);
+  lines.forEach(function (ln, i) { g.appendChild(text(x, y + i * lineH, ln, cls, "start")); });
+  return lines.length;
+}
 function sfmt(v) { return "+" + fmt(v); }
 
 /* ---------- tooltip ---------- */
@@ -631,6 +735,62 @@ function frame(host, w, h, minw, label) {
     g.appendChild(hit);
     g.appendChild(halo);
     bind(hit, DATA.names[code] + ": 2019 " + fmt(a) + ", 2024 " + fmt(b) + ", differens " + sfmt(d));
+  });
+})();
+/* ---------- 4. små multiplar: samtliga sex dimensioner, 2019 och 2024 ----------
+   eu_position har en annan skala än de övriga, 1 till 7, och får därför en egen axel. */
+(function panels() {
+  const host = document.getElementById("chart-panels");
+  const VARS = [
+    { key: "lrecon",           lo: 0, hi: 10, step: 2, note: "0 vänster till 10 höger" },
+    { key: "galtan",           lo: 0, hi: 10, step: 2, note: "0 frihetlig till 10 traditionell" },
+    { key: "eu_position",      lo: 1, hi: 7,  step: 2, note: "1 starkt emot till 7 starkt för" },
+    { key: "immigrate_policy", lo: 0, hi: 10, step: 2, note: "0 helt emot restriktiv politik till 10 helt för" },
+    { key: "multiculturalism", lo: 0, hi: 10, step: 2, note: "0 främja mångkultur till 10 främja assimilering" },
+    { key: "civlib_laworder",  lo: 0, hi: 10, step: 2, note: "0 medborgerliga fri- och rättigheter till 10 lag och ordning" }
+  ];
+  /* Gemensam radordning i alla paneler, så att ett parti kan följas mellan dem. */
+  const order = CODES.slice().sort(function (a, b) {
+    return DATA.ches2024[a].lrecon - DATA.ches2024[b].lrecon;
+  });
+
+  host.textContent = "";
+
+  VARS.forEach(function (v) {
+    const W = 310, ML = 34, MR = 12, MT = 54, MB = 38, RH = 24;
+    const pw = W - ML - MR, ph = order.length * RH;
+    const H = MT + ph + MB;
+    const box = document.createElement("div");
+    host.appendChild(box);
+    const svg = frame(box, W, H, 0, v.key + ", 2019 och 2024, åtta partier");
+    svg.style.minWidth = "";
+    const x = function (val) { return ML + ((val - v.lo) / (v.hi - v.lo)) * pw; };
+    const g = n("g", {});
+    svg.appendChild(g);
+
+    g.appendChild(text(2, 15, v.key, "ptitle", "start"));
+    wrap(g, v.note, 2, 32, "psub", W - 4, 13);
+
+    for (let t = v.lo; t <= v.hi; t += v.step) {
+      g.appendChild(n("line", { x1: x(t), y1: MT - 8, x2: x(t), y2: MT + ph, stroke: "var(--rule)", "stroke-width": 1 }));
+      g.appendChild(text(x(t), MT + ph + 18, String(t), "ptick", "middle"));
+    }
+    g.appendChild(n("line", { x1: ML, y1: MT + ph, x2: ML + pw, y2: MT + ph, stroke: "var(--axis)", "stroke-width": 1 }));
+
+    order.forEach(function (code, i) {
+      const a = DATA.ches2019[code][v.key];
+      const b = DATA.ches2024[code][v.key];
+      const ty = MT + i * RH + RH / 2;
+      g.appendChild(text(ML - 8, ty + 4, code, "pcode", "end"));
+      g.appendChild(n("line", { x1: x(a), y1: ty, x2: x(b), y2: ty, stroke: "var(--dim)", "stroke-width": 1.5 }));
+      g.appendChild(n("circle", { cx: x(a), cy: ty, r: 3.5, fill: "var(--dim)" }));
+      g.appendChild(n("circle", { cx: x(b), cy: ty, r: 4, fill: "var(--mark)" }));
+      const hit = n("rect", { x: ML - 32, y: ty - RH / 2, width: pw + 42, height: RH, class: "hit" });
+      const halo = n("rect", { x: Math.min(x(a), x(b)) - 8, y: ty - 9, width: Math.abs(x(b) - x(a)) + 16, height: 18, rx: 9, class: "halo" });
+      g.appendChild(hit);
+      g.appendChild(halo);
+      bind(hit, DATA.names[code] + ": " + v.key + " 2019 " + fmt(a) + ", 2024 " + fmt(b));
+    });
   });
 })();
 </script>
