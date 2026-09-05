@@ -107,6 +107,7 @@ ul.plain li{margin-bottom:8px}
 /* ---------- diagram ---------- */
 figure{margin:26px 0 8px}
 .scroll{overflow-x:auto;overflow-y:hidden;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+.scroll.alt{background:transparent;border:1px dashed var(--axis)}
 .scroll svg{display:block;width:100%;height:auto}
 svg text{font-family:var(--font);font-variant-numeric:tabular-nums}
 .ax{fill:var(--muted);font-size:12px}
@@ -445,19 +446,62 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);color:v
 </section>
 
 <section>
-  <h2><span class="sectnum">8</span>Varför ingen korporatismpoäng per parti</h2>
+  <h2><span class="sectnum">8</span>Vad expertdatan inte mäter</h2>
+  <p>De sex dimensionerna beskriver var partierna står i sakpolitiken. De säger ingenting om utrikespolitisk lojalitet mot enskilda stater, och ingenting om hur utsatt ett parti är för främmande makts påverkansförsök. eu_position ligger närmast, men mäter inställningen till EU som institution. Uppgiften saknas alltså i det underlag sidan bygger på, och den går inte att räkna fram ur de tal som finns här.</p>
+  <p>Det som finns är enskilda dokumenterade fall, och de ligger inte samlade hos ett parti.</p>
+  <p>Hos Sverigedemokraterna lämnade en tjänsteman vid partiets riksdagskansli sin tjänst 2016, sedan det avslöjats att han publicerat under falska identiteter. Han nekades senare pressackreditering i riksdagen med säkerhetsrisk som skäl. Året därpå reste en riksdagsledamot för partiet till Moskva som inbjuden valobservatör vid de ryska regional- och lokalvalen. Inbjudan var signerad av en dumaledamot som sedan 2014 är belagd med EU-sanktioner, och ledamoten petades från partiet efter resan. Expo publicerade den 3 september 2026 en granskning av den politiska sekreterare som följde med på resan och som i dag är politiskt sakkunnig i konstitutionsutskottet.</p>
+  <p>Hos Miljöpartiet träffade en dåvarande ledamot i ungdomsförbundets förbundsstyrelse 2007 en tredjesekreterare vid Rysslands ambassad i Stockholm och skrev öppet om mötet på sin blogg. Diplomaten pekades 2019 offentligt ut som underrättelseofficer i en artikel av en rysk grävande journalist. Säkerhetspolisen kontaktade ledamoten kort efter mötet. Vid en säkerhetsprövning i Region Stockholm 2025 bedömde den dåvarande säkerhetschefen mötet som en riskfaktor, och prövningen godkändes först sedan bedömningen överprövats av en högre chef. Den berörde säger till Svenska Dagbladet att han ångrar mötet.</p>
+  <p>Ett återkommande drag i fallen är att kontakten söks tidigt, innan personen nått en position som omfattas av säkerhetsprövning. Fallen handlar därför om enskilda personer och om säkerhetsarbete. De är inte mätningar av var ett parti står, och sidan sätter ingen poäng på dem.</p>
+
+  <h3>Frivärlds Rysslandsindex</h3>
+  <p>Det närmaste en systematisk sammanställning som finns publicerad är Frivärlds Rysslandsindex. Tankesmedjan gick igenom hur ledamöterna i Europaparlamentet röstade i 26 omröstningar om Ryssland och EU:s relationer under mandatperioden 2014 till 2019. En ja-röst ger ett poäng, en nedlagd röst eller frånvaro noll, en nej-röst minus ett. Skalan går därmed från −26 till 26. Sammanställningen är gjord av Patrik Oksanen och publicerad den 7 september 2022, med Boudicca Georgii Hellbergs masteruppsats vid Oxforduniversitetet som underlag.</p>
+  <p>Tre saker skiljer den här serien från CHES-värdena ovan. Enheten är enskild ledamot, inte parti. Perioden 2014 till 2019 sammanfaller inte med någon av CHES-omgångarna. Och artikeln redovisar bara de högst och de lägst placerade svenska ledamöterna, inte hela delegationen, vilket gör att mitten av fördelningen saknas. Diagrammet visar de elva värden som anges i källan. Det är inte hela den svenska delegationen och ska inte läsas som om det vore det.</p>
+
+  <figure>
+    <div class="scroll alt"><div id="chart-russia"><p class="nojs">Diagrammet kräver JavaScript. Tabellen nedan innehåller samma data.</p></div></div>
+    <figcaption>Staplarna är gråtonade i stället för blå, för att skilja den här serien från CHES-mätningarna. Varje stapel är en enskild ledamot, märkt med parti. Fi satt i Europaparlamentet under perioden men inte i riksdagen. De två negativa värdena är de enda som anges i källan.</figcaption>
+  </figure>
+
+  <details>
+    <summary>Visa data som tabell: Frivärlds Rysslandsindex, svenska ledamöter 2014–2019</summary>
+    <div class="caution">
+      Sammanställningen är gjord av en tankesmedja, inte av en akademisk expertenkät, och den redovisar ett urval av ledamöterna. Ledamöter som varken hörde till de högst eller de lägst placerade anges inte i artikeln, och deras värden saknas därför här. Enheten är enskild ledamot och perioden är 2014 till 2019, vilket gör att siffrorna inte går att ställa bredvid CHES-värdena.
+    </div>
+    <div class="scroll" style="background:transparent;border:none">
+    <table>
+      <thead><tr><th>Parti</th><th class="n">Poäng av 26 möjliga</th></tr></thead>
+      <tbody>
+        <tr><th>C</th><td class="n">25</td></tr>
+        <tr><th>S</th><td class="n">24</td></tr>
+        <tr><th>L</th><td class="n">23</td></tr>
+        <tr><th>M</th><td class="n">23</td></tr>
+        <tr><th>S</th><td class="n">23</td></tr>
+        <tr><th>S</th><td class="n">23</td></tr>
+        <tr><th>V</th><td class="n">17</td></tr>
+        <tr><th>Fi</th><td class="n">16</td></tr>
+        <tr><th>M</th><td class="n">15</td></tr>
+        <tr><th>SD</th><td class="n">−4</td></tr>
+        <tr><th>SD</th><td class="n">−4</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2><span class="sectnum">9</span>Varför ingen korporatismpoäng per parti</h2>
   <p>Korporatism beskriver arkitekturen mellan staten och de organiserade intressena: vilka organisationer som har formella platser i beslutsprocessen, i vilka organ och på vilka villkor. Ett parti kan vilja ha den arkitekturen eller vilja avveckla den, men bär den inte i sig. Att sätta en korporatismpoäng på ett enskilt parti är att mäta en systemegenskap på fel analysnivå, och det är också skälet till att ingen sådan siffra finns på den här sidan.</p>
   <p>Här hör klassificeringsfrågan hemma. Den etablerade termen för Sverigedemokraterna i forskningen är populistiskt radikalhögerparti, efter Cas Muddes typologi. Jungar och Jupskås placerar partiet i den nordiska varianten av den partifamiljen. Fascism är inte den term litteraturen använder.</p>
 </section>
 
 <section>
-  <h2><span class="sectnum">9</span>Slutsats</h2>
+  <h2><span class="sectnum">10</span>Slutsats</h2>
   <p>Den svenska modellens särdrag låg i systemet, inte i partiernas ideologi. Organiserade intressen hade formella platser i statens beslutsfattande, och det arrangemanget monterades ned mellan 1987 och 1992, med parterna själva som drivande.</p>
   <p>Dagens partier skiljer sig framför allt på GAL–TAN och på synen på lag och ordning. De skiljer sig inte nämnvärt på hur nära staten de vill knyta organiserade intressen, och den dimension som en gång gjorde den svenska modellen särskild finns därför inte längre som skiljelinje mellan dem.</p>
 </section>
 
 <section>
-  <h2><span class="sectnum">10</span>Källor</h2>
+  <h2><span class="sectnum">11</span>Källor</h2>
   <ol class="sources">
     <li>Umberto Eco, "Ur-Fascism", The New York Review of Books, 22 juni 1995. <a href="https://www.nybooks.com/articles/1995/06/22/ur-fascism/">https://www.nybooks.com/articles/1995/06/22/ur-fascism/</a></li>
     <li>Chapel Hill Expert Survey 2019 och 2024. <a href="https://www.chesdata.eu/">https://www.chesdata.eu/</a></li>
@@ -467,11 +511,15 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);color:v
     <li>Ann-Cathrine Jungar och Anders Ravik Jupskås, "Populist Radical Right Parties in the Nordic Region: A New and Distinct Party Family?", Scandinavian Political Studies 37(3), 2014, s. 215–238.</li>
     <li>PerOla Öberg m.fl., "Disrupted Exchange and Declining Corporatism: Government Authority and Interest Group Capability in Scandinavia", Government and Opposition 46(3), 2011, s. 365–391.</li>
     <li>Johannes Lindvall och Joakim Sebring, "Policy Reform and the Decline of Corporatism in Sweden", West European Politics 28(5), 2005, s. 1057.</li>
+    <li>Jonathan Leman och Maria Georgieva, "Den okända sekreteraren 'Elena'", Expo, 3 september 2026. <a href="https://expo.se/fordjupning/den-okanda-sekreteraren-elena/">https://expo.se/fordjupning/den-okanda-sekreteraren-elena/</a></li>
+    <li>Patrik Oksanen, "SD:s Rysslandsröster sticker ut i Europaparlamentet", Frivärld, 7 september 2022. Underlag: Boudicca Georgii Hellbergs masteruppsats vid Oxforduniversitetet. <a href="https://frivarld.se/sakerhetsradet/sds-rysslandsroster-sticker-ut-i-europaparlamentet/">https://frivarld.se/sakerhetsradet/sds-rysslandsroster-sticker-ut-i-europaparlamentet/</a></li>
+    <li>Mathias Ståhle, "Jakop Dalunde om mötet med rysk diplomat: 'Jag ångrar det jättemycket'", Svenska Dagbladet, 4 september 2026. <a href="https://www.svd.se/a/vrVL5l/jakop-dalunde-om-motet-med-rysk-diplomat-jag-angrar-det-jattemycket">https://www.svd.se/a/vrVL5l/jakop-dalunde-om-motet-med-rysk-diplomat-jag-angrar-det-jattemycket</a></li>
+    <li>"Egor Putilov", Wikipedia, med underliggande rapportering i Aftonbladet, Dagens Nyheter och Sveriges Radio 2016 till 2019. <a href="https://sv.wikipedia.org/wiki/Egor_Putilov">https://sv.wikipedia.org/wiki/Egor_Putilov</a></li>
   </ol>
 </section>
 
 <footer>
-  <p>CHES-värdena är expertmedelvärden för landskod 16, hämtade ur de publicerade CSV-filerna. Poängsättningen av Ecos kriterier är en egen bedömning och ingen mätdata.</p>
+  <p>CHES-värdena är expertmedelvärden för landskod 16, hämtade ur de publicerade CSV-filerna. Poängsättningen av Ecos kriterier är en egen bedömning och ingen mätdata. Frivärlds Rysslandsindex är en sammanställning från en tankesmedja och redovisar bara ett urval av ledamöterna.</p>
 </footer>
 
 </div>
@@ -791,6 +839,53 @@ function frame(host, w, h, minw, label) {
       g.appendChild(halo);
       bind(hit, DATA.names[code] + ": " + v.key + " 2019 " + fmt(a) + ", 2024 " + fmt(b));
     });
+  });
+})();
+/* ---------- 5. Frivärlds Rysslandsindex, svenska ledamöter i Europaparlamentet 2014-2019 ----------
+   Annan enhet, annan period och annan sorts källa än CHES. Ritas i --dim för att
+   inte förväxlas med mätdatan. Endast de värden som anges i källan finns med;
+   ledamöter i mitten av fördelningen redovisas inte där och saknas därför här. */
+(function russia() {
+  const host = document.getElementById("chart-russia");
+  /* Ordagrant ur Frivärlds sammanställning. Parti, poäng. Ledamöterna namnges inte här. */
+  const RU = [
+    ["C", 25], ["S", 24], ["L", 23], ["M", 23], ["S", 23], ["S", 23],
+    ["V", 17], ["Fi", 16], ["M", 15], ["SD", -4], ["SD", -4]
+  ];
+  const NAMES = Object.assign({ Fi: "Feministiskt initiativ" }, DATA.names);
+  const LO = -26, HI = 26;
+
+  const ML = 46, MR = 44, MT = 46, MB = 60, RH = 32, BH = 15;
+  const W = 720, H = MT + RU.length * RH + MB;
+  const pw = W - ML - MR;
+  const svg = frame(host, W, H, 560, "Frivärlds Rysslandsindex för elva svenska ledamöter i Europaparlamentet 2014 till 2019");
+  const x = function (v) { return ML + ((v - LO) / (HI - LO)) * pw; };
+  const g = n("g", {});
+  svg.appendChild(g);
+  const base = MT + RU.length * RH;
+
+  [-26, -13, 0, 13, 26].forEach(function (t) {
+    g.appendChild(n("line", { x1: x(t), y1: MT - 10, x2: x(t), y2: base, stroke: t === 0 ? "var(--axis)" : "var(--rule)", "stroke-width": 1 }));
+    g.appendChild(text(x(t), base + 20, t < 0 ? "−" + Math.abs(t) : String(t), "ax", "middle"));
+  });
+  g.appendChild(n("line", { x1: ML, y1: base, x2: ML + pw, y2: base, stroke: "var(--axis)", "stroke-width": 1 }));
+  g.appendChild(text(ML, MT - 24, "Rysslandsindex, 26 omröstningar 2014 till 2019, en stapel per ledamot", "ax", "start"));
+  g.appendChild(text(ML, base + 44, "−26 röstade nej i samtliga", "ax", "start"));
+  g.appendChild(text(ML + pw, base + 44, "26 röstade ja i samtliga", "ax", "end"));
+
+  RU.forEach(function (row, i) {
+    const code = row[0], v = row[1];
+    const ty = MT + i * RH + RH / 2;
+    const x0 = x(0), x1 = x(v);
+    g.appendChild(text(ML - 10, ty + 5, code, "plab", "end"));
+    g.appendChild(n("rect", { x: Math.min(x0, x1), y: ty - BH / 2, width: Math.max(1, Math.abs(x1 - x0)), height: BH, fill: "var(--dim)" }));
+    const lbl = v < 0 ? "−" + Math.abs(v) : String(v);
+    g.appendChild(text(v < 0 ? x1 - 8 : x1 + 8, ty + 5, lbl, "pval", v < 0 ? "end" : "start"));
+    const hit = n("rect", { x: ML - 40, y: ty - RH / 2, width: pw + 52, height: RH, class: "hit" });
+    const halo = n("rect", { x: Math.min(x0, x1) - 3, y: ty - BH / 2 - 3, width: Math.abs(x1 - x0) + 6, height: BH + 6, class: "halo" });
+    g.appendChild(hit);
+    g.appendChild(halo);
+    bind(hit, "Ledamot för " + NAMES[code] + ": " + lbl + " poäng av 26 möjliga");
   });
 })();
 </script>
