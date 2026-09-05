@@ -119,6 +119,7 @@ svg text{font-family:var(--font);font-variant-numeric:tabular-nums}
 .psub{fill:var(--muted);font-size:11.5px}
 .pcode{fill:var(--ink);font-size:12px;font-weight:600}
 .ptick{fill:var(--muted);font-size:11.5px}
+.pname{fill:var(--ink);font-size:12.5px}
 figcaption{color:var(--muted);font-size:14px;line-height:1.5;margin-top:10px;max-width:68ch}
 
 .hit{fill:transparent;stroke:none;cursor:default;outline:none}
@@ -459,7 +460,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);color:v
 
   <figure>
     <div class="scroll alt"><div id="chart-russia"><p class="nojs">Diagrammet kräver JavaScript. Tabellen nedan innehåller samma data.</p></div></div>
-    <figcaption>Staplarna är gråtonade i stället för blå, för att skilja den här serien från CHES-mätningarna. Varje stapel är en enskild ledamot, märkt med parti. Fi satt i Europaparlamentet under perioden men inte i riksdagen. De två negativa värdena är de enda som anges i källan.</figcaption>
+    <figcaption>Staplarna är gråtonade i stället för blå, för att skilja den här serien från CHES-mätningarna. Varje stapel är en enskild ledamot. Flera partier hade mer än en ledamot i urvalet, vilket är skälet till att samma partibeteckning återkommer. Fi satt i Europaparlamentet under perioden men inte i riksdagen. De två negativa värdena är de enda som anges i källan.</figcaption>
   </figure>
 
   <details>
@@ -469,19 +470,19 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);color:v
     </div>
     <div class="scroll" style="background:transparent;border:none">
     <table>
-      <thead><tr><th>Parti</th><th class="n">Poäng av 26 möjliga</th></tr></thead>
+      <thead><tr><th>Ledamot</th><th>Parti</th><th class="n">Poäng av 26 möjliga</th></tr></thead>
       <tbody>
-        <tr><th>C</th><td class="n">25</td></tr>
-        <tr><th>S</th><td class="n">24</td></tr>
-        <tr><th>L</th><td class="n">23</td></tr>
-        <tr><th>M</th><td class="n">23</td></tr>
-        <tr><th>S</th><td class="n">23</td></tr>
-        <tr><th>S</th><td class="n">23</td></tr>
-        <tr><th>V</th><td class="n">17</td></tr>
-        <tr><th>Fi</th><td class="n">16</td></tr>
-        <tr><th>M</th><td class="n">15</td></tr>
-        <tr><th>SD</th><td class="n">−4</td></tr>
-        <tr><th>SD</th><td class="n">−4</td></tr>
+        <tr><th>Fredrick Federley</th><td>C</td><td class="n">25</td></tr>
+        <tr><th>Olle Ludvigsson</th><td>S</td><td class="n">24</td></tr>
+        <tr><th>Jytte Guteland</th><td>S</td><td class="n">23</td></tr>
+        <tr><th>Gunnar Hökmark</th><td>M</td><td class="n">23</td></tr>
+        <tr><th>Marita Ulvskog</th><td>S</td><td class="n">23</td></tr>
+        <tr><th>Cecilia Wikström</th><td>L</td><td class="n">23</td></tr>
+        <tr><th>Malin Björk</th><td>V</td><td class="n">17</td></tr>
+        <tr><th>Soraya Post</th><td>Fi</td><td class="n">16</td></tr>
+        <tr><th>Christofer Fjellner</th><td>M</td><td class="n">15</td></tr>
+        <tr><th>Peter Lundgren</th><td>SD</td><td class="n">−4</td></tr>
+        <tr><th>Kristina Winberg</th><td>SD</td><td class="n">−4</td></tr>
       </tbody>
     </table>
     </div>
@@ -847,18 +848,29 @@ function frame(host, w, h, minw, label) {
    ledamöter i mitten av fördelningen redovisas inte där och saknas därför här. */
 (function russia() {
   const host = document.getElementById("chart-russia");
-  /* Ordagrant ur Frivärlds sammanställning. Parti, poäng. Ledamöterna namnges inte här. */
+  /* Ordagrant ur Frivärlds sammanställning: ledamot, parti, poäng.
+     Flera partier har mer än en ledamot i urvalet, därför förekommer
+     samma partibeteckning på flera rader. */
   const RU = [
-    ["C", 25], ["S", 24], ["L", 23], ["M", 23], ["S", 23], ["S", 23],
-    ["V", 17], ["Fi", 16], ["M", 15], ["SD", -4], ["SD", -4]
+    ["Fredrick Federley", "C", 25],
+    ["Olle Ludvigsson", "S", 24],
+    ["Jytte Guteland", "S", 23],
+    ["Gunnar Hökmark", "M", 23],
+    ["Marita Ulvskog", "S", 23],
+    ["Cecilia Wikström", "L", 23],
+    ["Malin Björk", "V", 17],
+    ["Soraya Post", "Fi", 16],
+    ["Christofer Fjellner", "M", 15],
+    ["Peter Lundgren", "SD", -4],
+    ["Kristina Winberg", "SD", -4]
   ];
   const NAMES = Object.assign({ Fi: "Feministiskt initiativ" }, DATA.names);
   const LO = -26, HI = 26;
 
-  const ML = 46, MR = 44, MT = 46, MB = 60, RH = 32, BH = 15;
-  const W = 720, H = MT + RU.length * RH + MB;
+  const ML = 178, MR = 46, MT = 46, MB = 60, RH = 32, BH = 15;
+  const W = 820, H = MT + RU.length * RH + MB;
   const pw = W - ML - MR;
-  const svg = frame(host, W, H, 560, "Frivärlds Rysslandsindex för elva svenska ledamöter i Europaparlamentet 2014 till 2019");
+  const svg = frame(host, W, H, 660, "Frivärlds Rysslandsindex för elva svenska ledamöter i Europaparlamentet 2014 till 2019");
   const x = function (v) { return ML + ((v - LO) / (HI - LO)) * pw; };
   const g = n("g", {});
   svg.appendChild(g);
@@ -874,18 +886,18 @@ function frame(host, w, h, minw, label) {
   g.appendChild(text(ML + pw, base + 44, "26 röstade ja i samtliga", "ax", "end"));
 
   RU.forEach(function (row, i) {
-    const code = row[0], v = row[1];
+    const who = row[0], code = row[1], v = row[2];
     const ty = MT + i * RH + RH / 2;
     const x0 = x(0), x1 = x(v);
-    g.appendChild(text(ML - 10, ty + 5, code, "plab", "end"));
+    g.appendChild(text(ML - 12, ty + 5, who + " (" + code + ")", "pname", "end"));
     g.appendChild(n("rect", { x: Math.min(x0, x1), y: ty - BH / 2, width: Math.max(1, Math.abs(x1 - x0)), height: BH, fill: "var(--dim)" }));
     const lbl = v < 0 ? "−" + Math.abs(v) : String(v);
     g.appendChild(text(v < 0 ? x1 - 8 : x1 + 8, ty + 5, lbl, "pval", v < 0 ? "end" : "start"));
-    const hit = n("rect", { x: ML - 40, y: ty - RH / 2, width: pw + 52, height: RH, class: "hit" });
+    const hit = n("rect", { x: 0, y: ty - RH / 2, width: W, height: RH, class: "hit" });
     const halo = n("rect", { x: Math.min(x0, x1) - 3, y: ty - BH / 2 - 3, width: Math.abs(x1 - x0) + 6, height: BH + 6, class: "halo" });
     g.appendChild(hit);
     g.appendChild(halo);
-    bind(hit, "Ledamot för " + NAMES[code] + ": " + lbl + " poäng av 26 möjliga");
+    bind(hit, who + ", " + NAMES[code] + ": " + lbl + " poäng av 26 möjliga");
   });
 })();
 </script>
